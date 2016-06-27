@@ -8,7 +8,7 @@ import dagger.Component;
  * Created by Paul on 6/27/2016.
  */
 @Singleton
-@Component(modules = {AppModule.class})
+@Component(modules = {AppModule.class, ApiModule.class})
 public interface AppComponent extends AppGraph {
     final class Initializer {
         private Initializer() {
