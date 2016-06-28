@@ -6,9 +6,20 @@
     android:layout_height="match_parent"
     tools:context="com.bolnizar.csubb.fragments.NewsFragment">
 
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/news_recycler"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:listitem="@layout/item_news"
+        />
+
     <TextView
+        android:id="@+id/news_empty_view"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:text="NEWS"/>
+        android:text="@string/nothing_here"
+        android:textSize="20sp"
+        android:visibility="gone"
+        tools:visibility="gone"/>
 </FrameLayout>

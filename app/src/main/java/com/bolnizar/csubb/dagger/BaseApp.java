@@ -1,12 +1,13 @@
 package com.bolnizar.csubb.dagger;
 
-import android.app.Application;
 import android.content.Context;
+
+import com.orm.SugarApp;
 
 /**
  * Created by Paul on 6/27/2016.
  */
-public class BaseApp extends Application {
+public class BaseApp extends SugarApp {
 
     private AppGraph mGraph;
 

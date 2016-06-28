@@ -1,5 +1,9 @@
 <resources>
     <string name="app_name">csubb</string>
+
+    <!-- tabs-->
     <string name="news">News</string>
     <string name="filter">Filter</string>
+    <!-- news feed-->
+    <string name="nothing_here">Nothing here</string>
 </resources>

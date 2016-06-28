@@ -4,8 +4,12 @@ import android.content.Context;
 
 import com.bolnizar.csubb.dagger.BaseApp;
 import com.bolnizar.csubb.dagger.qualifiers.ApiRo;
+import com.bolnizar.csubb.models.NewsModel;
 import com.bolnizar.csubb.models.NewsResponse;
+import com.bolnizar.csubb.models.database.NewsRecord;
 import com.bolnizar.csubb.models.service.ApiService;
+
+import java.util.List;
 
 import javax.inject.Inject;
 
@@ -48,7 +52,16 @@ public class NewsPresenter {
         });
     }
 
-    private void newsLoadedFromServer(NewsResponse body) {
+    public List<NewsRecord> getNewsFromDatabase() {
+        return NewsRecord.listAll(NewsRecord.class);
+    }
 
+    private void newsLoadedFromServer(NewsResponse body) {
+        for (NewsModel newsModel : body.items) {
+            NewsRecord newsRecord = new NewsRecord();
+            newsRecord.loadFromNews(newsModel);
+            newsRecord.save();
+        }
+        mNewsView.showNews(getNewsFromDatabase());
     }
 }
